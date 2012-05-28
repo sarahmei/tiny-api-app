@@ -61,7 +61,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.update_attributes(params[:message])
         format.html { redirect_to(@message, :notice => 'Message was successfully updated.') }
-        format.json { head :ok }
+        format.json { render :json => {} }
       else
         format.html { render :action => "edit" }
         format.json { render :json => @message.errors, :status => :unprocessable_entity }
@@ -77,7 +77,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(messages_url) }
-      format.json { head :ok }
+      format.json { render :json => {} }
     end
   end
 end
